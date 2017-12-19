@@ -79,6 +79,8 @@ namespace InnerJoinData
             }
             tbJKL.Text = joinTable.LongCount<Jointable>().ToString();
             dgvProses.DataSource = joinTable;
+            dgvProses.Columns[2].Width = 35;
+            dgvProses.Columns[3].Width = 35;
         }
 
         public DataTable ReadExcel(string fileName, string fileExt)
@@ -216,6 +218,14 @@ namespace InnerJoinData
                 dgvSPL.DataSource = dtExcel;
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            printDocument1.DefaultPageSettings.Landscape = true;
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
         StringFormat strFormat; //Used to format the grid rows.
         ArrayList arrColumnLefts = new ArrayList();//Used to save left coordinates of columns
         ArrayList arrColumnWidths = new ArrayList();//Used to save column widths
@@ -229,6 +239,7 @@ namespace InnerJoinData
         private void button1_Click(object sender, EventArgs e)
         {
             PrintDialog printDialog = new PrintDialog();
+            printDocument1.DefaultPageSettings.Landscape = true;
             printDialog.Document = printDocument1;
             printDialog.UseEXDialog = true;
 
@@ -273,8 +284,11 @@ namespace InnerJoinData
             {
                 //Set the left margin
                 int iLeftMargin = e.MarginBounds.Left;
-                //Set the top margin
+                ////Set the top margin
                 int iTopMargin = e.MarginBounds.Top;
+                
+                //Set the top margin
+                
                 //Whether more pages have to print or not
                 bool bMorePagesToPrint = false;
                 int iTmpWidth = 0;

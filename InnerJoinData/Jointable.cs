@@ -19,6 +19,7 @@ namespace InnerJoinData
         public string SECTION { get; set; }
         public string SUBSECTION { get; set; }
         public string GROUP { get; set; }
+        public string SUBGROUP { get; set; }
         public string BAGIAN { get; set; }
 
         public Jointable() { }

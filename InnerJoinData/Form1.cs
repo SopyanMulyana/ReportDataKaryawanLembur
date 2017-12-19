@@ -21,7 +21,7 @@ namespace InnerJoinData
             InitializeComponent();
         }
         
-        List<string> noPegawai, nama, id, mulai, selesai, divisi, departement, jabatan, kelas, section, subsection, groups, bagian;
+        List<string> noPegawai, nama, id, mulai, selesai, divisi, departement, jabatan, kelas, section, subsection, groups, subGroup, bagian;
         List<Jointable> joinTable;
 
         private void button4_Click(object sender, EventArgs e)
@@ -63,6 +63,7 @@ namespace InnerJoinData
             string[] subsection2 = subsection.ToArray();
             string[] groups2 = groups.ToArray();
             string[] bagian2 = bagian.ToArray();
+            string[] subGroup2 = subGroup.ToArray();
             pbProses.Minimum = 0;
             pbProses.Value = 0;
             pbProses.Maximum = id2.Length * noPegawai2.Length;
@@ -72,15 +73,16 @@ namespace InnerJoinData
                 {
                     if (id2[i]==noPegawai2[j])
                     {
-                        joinTable.Add(new Jointable() { NOPEGAWAI = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], BAGIAN = bagian2[j] });
+                        joinTable.Add(new Jointable() { NOPEGAWAI = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
                     }
                     pbProses.Value += 1;
                 }
             }
             tbJKL.Text = joinTable.LongCount<Jointable>().ToString();
             dgvProses.DataSource = joinTable;
-            dgvProses.Columns[2].Width = 35;
-            dgvProses.Columns[3].Width = 35;
+            dgvProses.Columns[2].Width = 50;
+            dgvProses.Columns[3].Width = 70;
+            
         }
 
         public DataTable ReadExcel(string fileName, string fileExt)
@@ -154,6 +156,7 @@ namespace InnerJoinData
                 section = new List<string>();
                 subsection = new List<string>();
                 groups = new List<string>();
+                subGroup = new List<string>();
                 bagian = new List<string>(); 
                 for (int i = 0; i < dtExcel.Rows.Count; i++)
                 {
@@ -166,7 +169,8 @@ namespace InnerJoinData
                     section.Add(dtExcel.Rows[i][25].ToString());
                     subsection.Add(dtExcel.Rows[i][26].ToString());
                     groups.Add(dtExcel.Rows[i][27].ToString());
-                    bagian.Add(dtExcel.Rows[i][28].ToString());
+                    subGroup.Add(dtExcel.Rows[i][28].ToString());
+                    bagian.Add(dtExcel.Rows[i][29].ToString());
                 }
                 dgvQuery.Visible = true;
                 dgvQuery.DataSource = dtExcel;

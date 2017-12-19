@@ -1,0 +1,11 @@
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\bin\Debug\InnerJoinData.exe.config
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\bin\Debug\InnerJoinData.exe
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\bin\Debug\InnerJoinData.pdb
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\obj\Debug\InnerJoinData.csprojResolveAssemblyReference.cache
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\obj\Debug\InnerJoinData.Form1.resources
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\obj\Debug\InnerJoinData.Properties.Resources.resources
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\obj\Debug\InnerJoinData.csproj.GenerateResource.Cache
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\obj\Debug\InnerJoinData.csproj.CoreCompileInputs.cache
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\obj\Debug\InnerJoinData.exe
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\obj\Debug\InnerJoinData.pdb
+C:\Users\02115\Documents\Visual Studio 2017\Project\InnerJoinData\InnerJoinData\obj\Debug\InnerJoinData.Process.resources

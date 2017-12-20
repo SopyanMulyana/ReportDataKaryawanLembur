@@ -81,11 +81,13 @@ namespace InnerJoinData
                     if (id2[i] == noPegawai2[j])
                     {
                         if (key=="all")
-                            jt.Add(new Jointable() { NOPEGAWAI = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                            jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
                         else if (key == jabatan2[j])
-                            jt.Add(new Jointable() { NOPEGAWAI = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                            jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
                         else if (key == section2[j])
-                            jt.Add(new Jointable() { NOPEGAWAI = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                            jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                        else if (key == departement[j])
+                            jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
 
                     }
                     //pbProses.Value += 1;
@@ -114,8 +116,11 @@ namespace InnerJoinData
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selected = cbSection.Text;
-            prosesTable(selected);
+            if (dgvProses.DataSource != null) {
+                string selected = cbSection.Text;
+                prosesTable(selected);
+            }
+            
         }
         //private void cbKKwKK_TextUpdate(object sender, EventArgs e)
         //{
@@ -125,8 +130,21 @@ namespace InnerJoinData
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selected = cbKKwKK.Text;
-            prosesTable(selected);
+            if (dgvProses.DataSource != null)
+            {
+                string selected = cbKKwKK.Text;
+                prosesTable(selected);
+            }
+                
+        }
+
+        private void cbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dgvProses.DataSource != null)
+            {
+                string selected = cbDepartment.Text;
+                prosesTable(selected);
+            }
         }
 
         public DataTable ReadExcel(string fileName, string fileExt)
@@ -166,6 +184,8 @@ namespace InnerJoinData
             panelPrint.Visible = false;
             panelProses.Visible = false;
         }
+
+        
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
@@ -288,6 +308,7 @@ namespace InnerJoinData
                 
             }
             
+            //code alternative untuk nampilin print preview stand alone :)
             //printPreviewDialog1.Document = printDocument1;
             //printPreviewDialog1.ShowDialog();
         }

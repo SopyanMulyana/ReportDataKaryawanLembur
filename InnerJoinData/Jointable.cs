@@ -8,7 +8,7 @@ namespace InnerJoinData
 {
     class Jointable
     {
-        public string NOPEGAWAI { get; set; }
+        public string NOID { get; set; }
         public string NAMA { get; set; }
         public string MULAI { get; set; }
         public string SELESAI { get; set; }
@@ -26,7 +26,7 @@ namespace InnerJoinData
 
         public Jointable(string noPegawai, string nama, string mulai, string selesai, string divisi, string departement, string jabatan, string kelas, string section, string subsection, string groups, string bagian)
         {
-            this.NOPEGAWAI = noPegawai;
+            this.NOID = noPegawai;
             this.NAMA = nama;
             this.MULAI = mulai;
             this.SELESAI = selesai;

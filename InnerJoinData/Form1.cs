@@ -22,22 +22,29 @@ namespace InnerJoinData
         }
         
         List<string> noPegawai, nama, id, mulai, selesai, divisi, departement, jabatan, kelas, section, subsection, groups, subGroup, bagian;
-        List<Jointable> joinTable;
+        List<Jointable> joinTable, fKK, fWKK, F;
 
         private void button4_Click(object sender, EventArgs e)
         {
-            copyAlltoClipboard();
-            Excel.Application xlexcel;
-            Excel.Workbook xlWorkBook;
-            Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
-            xlexcel = new Excel.Application();
-            xlexcel.Visible = true;
-            xlWorkBook = xlexcel.Workbooks.Add(misValue);
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
-            CR.Select();
-            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            if (dgvProses.DataSource != null)
+            {
+                copyAlltoClipboard();
+                Excel.Application xlexcel;
+                Excel.Workbook xlWorkBook;
+                Excel.Worksheet xlWorkSheet;
+                object misValue = System.Reflection.Missing.Value;
+                xlexcel = new Excel.Application();
+                xlexcel.Visible = true;
+                xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            }
+            else
+            {
+                MessageBox.Show("Cannot be exported");
+            }
         }
         
 
@@ -46,10 +53,9 @@ namespace InnerJoinData
             panelProses.Visible = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void prosesTable(string key)
         {
-            panelProses.Visible = true;
-            joinTable = new List<Jointable>();
+            List<Jointable> jt = new List<Jointable>();
             string[] noPegawai2 = noPegawai.ToArray();
             string[] nama2 = nama.ToArray();
             string[] id2 = id.ToArray();
@@ -64,25 +70,63 @@ namespace InnerJoinData
             string[] groups2 = groups.ToArray();
             string[] bagian2 = bagian.ToArray();
             string[] subGroup2 = subGroup.ToArray();
-            pbProses.Minimum = 0;
-            pbProses.Value = 0;
-            pbProses.Maximum = id2.Length * noPegawai2.Length;
-            for (int i=0; i<id2.Length; i++)
+            Cursor = Cursors.WaitCursor;
+            //pbProses.Minimum = 0;
+            //pbProses.Value = 0;
+            //pbProses.Maximum = id2.Length * noPegawai2.Length;
+            for (int i = 0; i < id2.Length; i++)
             {
-                for (int j=0; j<noPegawai2.Length; j++)
+                for (int j = 0; j < noPegawai2.Length; j++)
                 {
-                    if (id2[i]==noPegawai2[j])
+                    if (id2[i] == noPegawai2[j])
                     {
-                        joinTable.Add(new Jointable() { NOPEGAWAI = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                        if (key=="all")
+                            jt.Add(new Jointable() { NOPEGAWAI = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                        else if (key == jabatan2[j])
+                            jt.Add(new Jointable() { NOPEGAWAI = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                        else if (key == section2[j])
+                            jt.Add(new Jointable() { NOPEGAWAI = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+
                     }
-                    pbProses.Value += 1;
+                    //pbProses.Value += 1;
                 }
             }
-            tbJKL.Text = joinTable.LongCount<Jointable>().ToString();
-            dgvProses.DataSource = joinTable;
+            tbJKL.Text = jt.LongCount<Jointable>().ToString();
+            dgvProses.DataSource = jt;
             dgvProses.Columns[2].Width = 50;
             dgvProses.Columns[3].Width = 70;
+            Cursor = Cursors.Default;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                panelPrint.Visible = false;
+                panelProses.Visible = true;
+                prosesTable("all");
+            }
+            catch (Exception)
+            {
+                
+            }
             
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected = cbSection.Text;
+            prosesTable(selected);
+        }
+        //private void cbKKwKK_TextUpdate(object sender, EventArgs e)
+        //{
+        //    string selected = cbSection.Text;
+        //    prosesTable(selected);
+        //}
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected = cbKKwKK.Text;
+            prosesTable(selected);
         }
 
         public DataTable ReadExcel(string fileName, string fileExt)
@@ -117,7 +161,11 @@ namespace InnerJoinData
                 Clipboard.SetDataObject(dataObj);
         }
 
-        
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            panelPrint.Visible = false;
+            panelProses.Visible = false;
+        }
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
@@ -164,13 +212,13 @@ namespace InnerJoinData
                     nama.Add(dtExcel.Rows[i][9].ToString());
                     divisi.Add(dtExcel.Rows[i][11].ToString());
                     departement.Add(dtExcel.Rows[i][12].ToString());
-                    jabatan.Add(dtExcel.Rows[i][22].ToString());
-                    kelas.Add(dtExcel.Rows[i][23].ToString());
-                    section.Add(dtExcel.Rows[i][25].ToString());
-                    subsection.Add(dtExcel.Rows[i][26].ToString());
-                    groups.Add(dtExcel.Rows[i][27].ToString());
-                    subGroup.Add(dtExcel.Rows[i][28].ToString());
-                    bagian.Add(dtExcel.Rows[i][29].ToString());
+                    jabatan.Add(dtExcel.Rows[i][21].ToString());
+                    kelas.Add(dtExcel.Rows[i][22].ToString());
+                    section.Add(dtExcel.Rows[i][24].ToString());
+                    subsection.Add(dtExcel.Rows[i][25].ToString());
+                    groups.Add(dtExcel.Rows[i][26].ToString());
+                    subGroup.Add(dtExcel.Rows[i][27].ToString());
+                    bagian.Add(dtExcel.Rows[i][28].ToString());
                 }
                 dgvQuery.Visible = true;
                 dgvQuery.DataSource = dtExcel;
@@ -223,11 +271,25 @@ namespace InnerJoinData
             }
         }
 
+        private void panelProses_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        
         private void button5_Click(object sender, EventArgs e)
         {
-            printDocument1.DefaultPageSettings.Landscape = true;
-            printPreviewDialog1.Document = printDocument1;
-            printPreviewDialog1.ShowDialog();
+            panelPrint.Visible = true;
+            if (dgvProses.DataSource != null)
+            {
+                printDocument1.DefaultPageSettings.Landscape = true;
+                printPreviewControl1.Document = printDocument1;
+                double nilai = Convert.ToDouble(printPreviewControl1.Width) / Convert.ToDouble(printDocument1.DefaultPageSettings.PaperSize.Width);
+                printPreviewControl1.Zoom = nilai;
+                
+            }
+            
+            //printPreviewDialog1.Document = printDocument1;
+            //printPreviewDialog1.ShowDialog();
         }
 
         StringFormat strFormat; //Used to format the grid rows.
@@ -242,16 +304,23 @@ namespace InnerJoinData
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PrintDialog printDialog = new PrintDialog();
-            printDocument1.DefaultPageSettings.Landscape = true;
-            printDialog.Document = printDocument1;
-            printDialog.UseEXDialog = true;
-
-            //Get the document
-            if (DialogResult.OK == printDialog.ShowDialog())
+            if (dgvProses.DataSource != null)
             {
-                printDocument1.DocumentName = "Test Page Print";
-                printDocument1.Print();
+                PrintDialog printDialog = new PrintDialog();
+                printDocument1.DefaultPageSettings.Landscape = true;
+                printDialog.Document = printDocument1;
+                printDialog.UseEXDialog = true;
+
+                //Get the document
+                if (DialogResult.OK == printDialog.ShowDialog())
+                {
+                    printDocument1.DocumentName = "Test Page Print";
+                    printDocument1.Print();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Cannot be printed");
             }
         }
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)

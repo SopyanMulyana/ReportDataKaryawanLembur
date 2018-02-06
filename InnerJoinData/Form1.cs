@@ -310,17 +310,17 @@ namespace InnerJoinData
                 bagian = new List<string>(); 
                 for (int i = 0; i < dtExcel.Rows.Count; i++)
                 {
-                    noPegawai.Add(dtExcel.Rows[i][8].ToString());
-                    nama.Add(dtExcel.Rows[i][9].ToString());
-                    divisi.Add(dtExcel.Rows[i][11].ToString());
-                    departement.Add(dtExcel.Rows[i][12].ToString());
-                    jabatan.Add(dtExcel.Rows[i][21].ToString());
-                    kelas.Add(dtExcel.Rows[i][22].ToString());
-                    section.Add(dtExcel.Rows[i][24].ToString());
-                    subsection.Add(dtExcel.Rows[i][25].ToString());
-                    groups.Add(dtExcel.Rows[i][26].ToString());
-                    subGroup.Add(dtExcel.Rows[i][27].ToString());
-                    bagian.Add(dtExcel.Rows[i][28].ToString());
+                    noPegawai.Add(dtExcel.Rows[i][1].ToString());
+                    nama.Add(dtExcel.Rows[i][2].ToString());
+                    divisi.Add(dtExcel.Rows[i][3].ToString());
+                    departement.Add(dtExcel.Rows[i][4].ToString());
+                    jabatan.Add(dtExcel.Rows[i][5].ToString());
+                    kelas.Add(dtExcel.Rows[i][6].ToString());
+                    section.Add(dtExcel.Rows[i][7].ToString());
+                    subsection.Add(dtExcel.Rows[i][8].ToString());
+                    groups.Add(dtExcel.Rows[i][9].ToString());
+                    subGroup.Add(dtExcel.Rows[i][10].ToString());
+                    bagian.Add(dtExcel.Rows[i][11].ToString());
                 }
                 dgvQuery.Visible = true;
                 dgvQuery.DataSource = dtExcel;

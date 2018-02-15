@@ -100,7 +100,7 @@ namespace InnerJoinData
                                 }
                             }
                             //foreman B
-                            if (key.ToLower() == "foreman a")
+                            else if (key.ToLower() == "foreman a")
                             {
                                 if (bagian2[j].ToLower() == "sanding balikan up/gp pwh" || bagian2[j].ToLower() == "sanding dasar/balikan up pm/pw" || bagian2[j].ToLower() == "sanding balikan gp pe / part ycj" || bagian2[j].ToLower() == "sanding balikan colour gp" || bagian2[j].ToLower() == "spray gp pe / part ycj" || bagian2[j].ToLower() == "spray up/gp pwh" || bagian2[j].ToLower() == "spray colour up/gp")
                                 {
@@ -108,64 +108,100 @@ namespace InnerJoinData
                                 }
                             }
                             //foreman C
-                            else if (bagian2[j].ToLower() == "sanding dasar satin & furniture" || bagian2[j].ToLower() == "spray satin & furniture" || bagian2[j].ToLower() == "frame up" || bagian2[j].ToLower() == "frame gp" || bagian2[j].ToLower() == "frame assy up/gp")
+                            else if (key.ToLower() == "foreman c")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "sanding dasar satin & furniture" || bagian2[j].ToLower() == "spray satin & furniture" || bagian2[j].ToLower() == "frame up" || bagian2[j].ToLower() == "frame gp" || bagian2[j].ToLower() == "frame assy up/gp")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman D
-                            else if (bagian2[j].ToLower() == "sanding panel gp" || bagian2[j].ToLower() == "buffing panel gp" || bagian2[j].ToLower() == "sanding mesin panel up" || bagian2[j].ToLower() == "hand sanding panel up" || bagian2[j].ToLower() == "1st buffing panel up" || bagian2[j].ToLower() == "finish buffing panel up" || bagian2[j].ToLower() == "sanding p22 se / m2 sdw jz")
+                            else if (key.ToLower() == "foreman d")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "sanding panel gp" || bagian2[j].ToLower() == "buffing panel gp" || bagian2[j].ToLower() == "sanding mesin panel up" || bagian2[j].ToLower() == "hand sanding panel up" || bagian2[j].ToLower() == "1st buffing panel up" || bagian2[j].ToLower() == "finish buffing panel up" || bagian2[j].ToLower() == "sanding p22 se / m2 sdw jz")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman E
-                            else if (bagian2[j].ToLower() == "sanding mesin small up" || bagian2[j].ToLower() == "hand sanding small up" || bagian2[j].ToLower() == "buffing up part ycj" || bagian2[j].ToLower() == "setting handling" || bagian2[j].ToLower() == "repair" || bagian2[j].ToLower() == "painting development")
+                            else if (key.ToLower() == "foreman e")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "sanding mesin small up" || bagian2[j].ToLower() == "hand sanding small up" || bagian2[j].ToLower() == "buffing up part ycj" || bagian2[j].ToLower() == "setting handling" || bagian2[j].ToLower() == "repair" || bagian2[j].ToLower() == "painting development")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman F
-                            else if (bagian2[j].ToLower() == "sanding small gp" || bagian2[j].ToLower() == "buffing small gp" || bagian2[j].ToLower() == "sanding / buffing side gp")
+                            else if (key.ToLower() == "foreman f")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "sanding small gp" || bagian2[j].ToLower() == "buffing small gp" || bagian2[j].ToLower() == "sanding / buffing side gp")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman G
-                            else if (bagian2[j].ToLower() == "s4s" || bagian2[j].ToLower() == "cleat")
+                            else if (key.ToLower() == "foreman g")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "s4s" || bagian2[j].ToLower() == "cleat")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman H
-                            else if (bagian2[j].ToLower() == "machine leg" || bagian2[j].ToLower() == "cabinet gp")
+                            else if (key.ToLower() == "foreman h")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "machine leg" || bagian2[j].ToLower() == "cabinet gp")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman I
-                            else if (bagian2[j].ToLower() == "cold press" || bagian2[j].ToLower() == "hot press panel" || bagian2[j].ToLower() == "cutting sizer" || bagian2[j].ToLower() == "press fall board" || bagian2[j].ToLower() == "press panel")
+                            else if (key.ToLower() == "foreman i")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "cold press" || bagian2[j].ToLower() == "hot press panel" || bagian2[j].ToLower() == "cutting sizer" || bagian2[j].ToLower() == "press fall board" || bagian2[j].ToLower() == "press panel")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman J
-                            else if (bagian2[j].ToLower() == "hot press up furn/sat & part" || bagian2[j].ToLower() == "m. cab up furn & sat & part" || bagian2[j].ToLower() == "machine bridge" || bagian2[j].ToLower() == "fall board assy")
+                            else if (key.ToLower() == "foreman j")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "hot press up furn/sat & part" || bagian2[j].ToLower() == "m. cab up furn & sat & part" || bagian2[j].ToLower() == "machine bridge" || bagian2[j].ToLower() == "fall board assy")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman K
-                            else if (bagian2[j].ToLower() == "wood proses & repair" || bagian2[j].ToLower() == "machine cabinet up" || bagian2[j].ToLower() == "cabinet case" || bagian2[j].ToLower() == "cabinet side" || bagian2[j].ToLower() == "cabinet up")
+                            else if (key.ToLower() == "foreman k")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "wood proses & repair" || bagian2[j].ToLower() == "machine cabinet up" || bagian2[j].ToLower() == "cabinet case" || bagian2[j].ToLower() == "cabinet side" || bagian2[j].ToLower() == "cabinet up")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman L
-                            else if (bagian2[j].ToLower() == "nc machining" || bagian2[j].ToLower() == "top board gp" || bagian2[j].ToLower() == "ww administrasi")
+                            else if (key.ToLower() == "foreman l")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "nc machining" || bagian2[j].ToLower() == "top board gp" || bagian2[j].ToLower() == "ww administrasi")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman M
-                            else if (bagian2[j].ToLower() == "setting veneer" || bagian2[j].ToLower() == "sound board painting gp" || bagian2[j].ToLower() == "back moulding gp" || bagian2[j].ToLower() == "sound board glue gp" || bagian2[j].ToLower() == "gp side board glue" || bagian2[j].ToLower() == "sanding dasar gp")
+                            else if (key.ToLower() == "foreman m")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "setting veneer" || bagian2[j].ToLower() == "sound board painting gp" || bagian2[j].ToLower() == "back moulding gp" || bagian2[j].ToLower() == "sound board glue gp" || bagian2[j].ToLower() == "gp side board glue" || bagian2[j].ToLower() == "sanding dasar gp")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman N
-                            else if (bagian2[j].ToLower() == "sub ass'y top board & music desk gp" || bagian2[j].ToLower() == "sub ass'y gp part, up part,  bench ass'y" || bagian2[j].ToLower() == "stringing gp" || bagian2[j].ToLower() == "key bed ass'y & mounting regulation" || bagian2[j].ToLower() == "1st reg. damper ass'y,   key block")
+                            else if (key.ToLower() == "foreman n")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "sub ass'y top board & music desk gp" || bagian2[j].ToLower() == "sub ass'y gp part, up part,  bench ass'y" || bagian2[j].ToLower() == "stringing gp" || bagian2[j].ToLower() == "key bed ass'y & mounting regulation" || bagian2[j].ToLower() == "1st reg. damper ass'y,   key block")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                         }
 

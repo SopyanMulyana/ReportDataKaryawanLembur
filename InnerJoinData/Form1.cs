@@ -23,6 +23,7 @@ namespace InnerJoinData
         
         List<string> noPegawai, nama, id, mulai, selesai, divisi, departement, jabatan, kelas, section, subsection, groups, subGroup, bagian;
         List<Jointable> joinTable, fKK, fWKK, F;
+        string selectedForeman = "";
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -74,6 +75,7 @@ namespace InnerJoinData
             //pbProses.Minimum = 0;
             //pbProses.Value = 0;
             //pbProses.Maximum = id2.Length * noPegawai2.Length;
+            MessageBox.Show(key.ToLower());
             for (int i = 0; i < id2.Length; i++)
             {
                 for (int j = 0; j < noPegawai2.Length; j++)
@@ -91,14 +93,19 @@ namespace InnerJoinData
                         else if (key.Substring(0, 7).ToLower() == "foreman")
                         {
                             //foreman A
-                            if (bagian2[j].ToLower() == "sanding dasar up/gp" || bagian2[j].ToLower() == "spray flow coater" || bagian2[j].ToLower() == "sanding balikan up/gp")
-                            {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                            if (key.ToLower() == "foreman a") { 
+                                if (bagian2[j].ToLower() == "sanding dasar up/gp" || bagian2[j].ToLower() == "spray flow coater" || bagian2[j].ToLower() == "sanding balikan up/gp")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman B
-                            else if (bagian2[j].ToLower() == "sanding balikan up/gp pwh" || bagian2[j].ToLower() == "sanding dasar/balikan up pm/pw" || bagian2[j].ToLower() == "sanding balikan gp pe / part ycj" || bagian2[j].ToLower() == "sanding balikan colour gp" || bagian2[j].ToLower() == "spray gp pe / part ycj" || bagian2[j].ToLower() == "spray up/gp pwh" || bagian2[j].ToLower() == "spray colour up/gp")
+                            if (key.ToLower() == "foreman a")
                             {
-                                jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                if (bagian2[j].ToLower() == "sanding balikan up/gp pwh" || bagian2[j].ToLower() == "sanding dasar/balikan up pm/pw" || bagian2[j].ToLower() == "sanding balikan gp pe / part ycj" || bagian2[j].ToLower() == "sanding balikan colour gp" || bagian2[j].ToLower() == "spray gp pe / part ycj" || bagian2[j].ToLower() == "spray up/gp pwh" || bagian2[j].ToLower() == "spray colour up/gp")
+                                {
+                                    jt.Add(new Jointable() { NOID = noPegawai2[j], NAMA = nama2[j], MULAI = mulai2[i], SELESAI = selesai2[i], DIVISI = divisi2[j], DEPARTMENT = departement2[j], JABATAN = jabatan2[j], KELAS = kelas2[j], SECTION = section2[j], SUBSECTION = subsection2[j], GROUP = groups2[j], SUBGROUP = subGroup2[j], BAGIAN = bagian2[j] });
+                                }
                             }
                             //foreman C
                             else if (bagian2[j].ToLower() == "sanding dasar satin & furniture" || bagian2[j].ToLower() == "spray satin & furniture" || bagian2[j].ToLower() == "frame up" || bagian2[j].ToLower() == "frame gp" || bagian2[j].ToLower() == "frame assy up/gp")
